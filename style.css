@@ -1,40 +1,35 @@
-::-webkit-scrollbar { /* chrome based */
-  width: 0px;  /* ширина scrollbar'a */
-  background: transparent;  /* опционально */
-}
-
-html {
-  -ms-overflow-style: none;  /* IE 10+ */
-  scrollbar-width: none; /* Firefox */
-}
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
-  background-color: black;
-}
-.wrapper {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-.wrapper > div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: 100%;
 }
 
-.screen01hall {
-  background-image: url('img/screen01hall.png');
+.scene-1-section {
+  height: 180vh;
+  background-color: #023;
 }
-.screen01wall {
-  background-image: url('img/screen01wall.png');
+.scene-1 {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  height: 100vh;
 }
+.scene-1 > div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-height: 56.25vw;
+  height: 100%;
+  background-size: auto 100%;
+  background-position-x: center;
+}
+.screen-1-hall { background-image: url('img/screen01hall.png'); }
+.screen-1-wall { background-image: url('img/screen01wall.png'); }
+
 .screen02 {
+  height: 80vh;
   background-image: url('img/screen02.png');
+  background-size: auto 100%;
+  background-position-x: center;
 }

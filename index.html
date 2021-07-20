@@ -6,18 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Raccoons</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
 </head>
 
 <body>
   <div class="scene-1-section">
     <div class="scene-1">
-      <div class="screen-1-hall"></div>
-      <div class="screen-1-wall"></div>
+      <div class="scene-1-hall" id="scene-1-hall"></div>
+      <div class="scene-1-content" id="scene-1-content">
+        <img src="img/TextLogo.png" class="scene-1-logo" alt="Raccoon Sectet Society">
+        <div>
+          <span class="scene-1-btn-about" id="scene-1-btn-about" data-href="screen02">About</span>
+          <a href="" class="scene-1-btn-buy">Buy</a>
+        </div>
+      </div>
+      <div class="scene-1-wall" id="scene-1-wall">
+        <div>
+          <a href="" class="scene-1-discord"><img src="img/Screen01ButtonDiscord.png" alt="discord"></a>
+          <a href="" class="scene-1-instagram"><img src="img/Screen01ButtonInsta.png" alt="instagram"></a>
+          <img src="img/Screen01Arrow.png" class="scene-1-arrow" id="scene-1-arrow" alt="">
+          <a href="" class="scene-1-twitter"><img src="img/Screen01ButtonTwitter.png" alt="twitter"></a>
+          <a href="" class="scene-1-web"><img src="img/Screen01ButtonWeb.png" alt="web"></a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="screen02"></div>
+  <div class="screen02" id="screen02"></div>
   <div style="width: 100%; height: 50vh; background-color: #333;"></div>
+  <script src="script.js"></script>
 </body>
 
 </html>

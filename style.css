@@ -1,31 +1,142 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
 }
 
+/* ********** SCENE 1 *********** */
 .scene-1-section {
   height: 180vh;
-  background-color: #023;
+  background-color: #030222;
 }
 .scene-1 {
   position: sticky;
   top: 0;
   overflow: hidden;
   height: 100vh;
+  text-align: center;
 }
-.scene-1 > div {
+.scene-1-hall,
+.scene-1-content,
+.scene-1-wall {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+/* HALL */
+.scene-1-hall {
   max-height: 56.25vw;
   height: 100%;
+  background-image: url('img/screen01hall.png');
   background-size: auto 100%;
   background-position-x: center;
 }
-.screen-1-hall { background-image: url('img/screen01hall.png'); }
-.screen-1-wall { background-image: url('img/screen01wall.png'); }
+/* CONTENT */
+.scene-1-content {
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 177.78vh;
+  height: 100%;
+  margin: auto;
+  opacity: 0;
+  transition: .5s;
+}
+.scene-1-logo {
+  width: 65%;
+}
+.scene-1-btn-about,
+.scene-1-btn-buy {
+  display: inline-block;
+  border-radius: 4px;
+  background: radial-gradient(#d8d4a0, 65%, #988050 85%);
+  font-size: 20px;
+  color: #4d4129;
+  cursor: pointer;
+  transition: .15s;
+}
+.scene-1-btn-about {
+  padding: 12px 32px;
+}
+.scene-1-btn-buy {
+  margin-left: 32px;
+  padding: 12px 56px;
+}
+.scene-1-btn-about:hover,
+.scene-1-btn-buy:hover {
+  box-shadow: 0 0 8px 1px #d8d4a0;
+}
+/* WALL */
+.scene-1-wall {
+  max-height: 36vw;
+  height: 64%;
+  background-image: url('img/screen01wall.png');
+  background-size: auto 156.25%;
+  background-position: center bottom;
+}
+.scene-1-wall > div {
+  position: relative;
+  max-width: 48vh;
+  width: 27%;
+  height: 100%;
+  margin: auto;
+}
+.scene-1-wall > div > * {
+  position: absolute;
+  transition: .15s;
+}
+.scene-1-wall > div > a:hover {
+  transform: scale(1.1);
+}
+.scene-1-discord {
+  top: 52%;
+  left: 1.3%;
+  width: 21.41%;
+}
+.scene-1-instagram {
+  top: 52%;
+  right: 1.3%;
+  width: 21.41%;
+}
+.scene-1-twitter {
+  top: 80.4%;
+  left: 4.7%;
+  width: 17.36%;
+}
+.scene-1-web {
+  top: 80.4%;
+  right: 4.7%;
+  width: 17.36%;
+}
+.scene-1-wall > div > a > img {
+  width: 100%;
+}
+.scene-1-arrow {
+  top: 42%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  margin: auto;
+  opacity: .5;
+  cursor: pointer;
+  transition: .15s;
+}
+.scene-1-arrow:hover {
+  opacity: .75;
+}
+/* ********** SCENE 1 END *********** */
 
 .screen02 {
   height: 80vh;

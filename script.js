@@ -1,25 +1,33 @@
-{window.onload = () => {
-  let hall = document.querySelector('.screen-1-hall');
-  let wall = document.querySelector('.screen-1-wall');
-  let height = 0;
+window.onload = () => {
+  let hallStyle = document.getElementById('scene-1-hall').style;
+  let contentStyle = document.getElementById('scene-1-content').style;
+  let wallStyle = document.getElementById('scene-1-wall').style;
+  const docElem = document.documentElement;
+  let viewportHeight = docElem.clientHeight;
   let position = 0;
 
   let rendering = () => {
-    hall.style.transform = `scale(${position<.75 ? position/.75+1 : 2}) translateY(${position<.75 ? position*32 : 24}%)`;
-    wall.style.transform = `translateY(${position<.5 ? position*80 : 40}%)`;
-    wall.style.opacity = position<.5 ? 1-position*2 : 0;
-  };
+    position = docElem.scrollTop / viewportHeight;
+
+    hallStyle.transform = `scale(${ position<.7 ? position/.7+1 : 2 }) translateY(${ position<.7 ? position*35 : 24.5 }%)`;
+    contentStyle.opacity = position<.69 ? 0 : 1;
+    wallStyle.transform = `translateY(${ position<.5 ? position*125 : 62.5 }%)`;
+    wallStyle.opacity = position<.5 ? 1-position*2 : 0;
+    wallStyle.display = position<.51 ? 'block' : 'none';
+  }
 
   window.onresize = () => {
-    height = document.documentElement.clientHeight;
-    document.documentElement.scrollTop = position * height;
-    rendering();
-  };
+    viewportHeight = docElem.clientHeight;
+    docElem.scrollTop = position * viewportHeight;
+  }
 
-  window.onscroll = () => {
-    position = document.documentElement.scrollTop / height;
-    rendering();
-  };
+  window.onscroll = rendering;
 
-  window.onresize();
-};}
+  rendering();
+
+  const arrow = document.getElementById('scene-1-arrow');
+  arrow.onclick = () => { docElem.scrollTop = .7 * viewportHeight; }
+  const about = document.getElementById('scene-1-btn-about');
+  const aboutTo = document.getElementById(about.dataset.href);
+  about.onclick = () => { aboutTo.scrollIntoView(); }
+}

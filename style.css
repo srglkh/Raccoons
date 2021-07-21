@@ -11,6 +11,20 @@ body {
 a {
   text-decoration: none;
 }
+.btn {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 12px 32px;
+  background: radial-gradient(#d8d4a0, 65%, #988050 85%);
+  font-size: 20px;
+  color: #4d4129;
+  cursor: pointer;
+  transition: .15s;
+}
+.btn:hover {
+  box-shadow: 0 0 8px 1px #d8d4a0;
+}
+
 
 /* ********** SCENE 1 *********** */
 .scene-1-section {
@@ -69,26 +83,12 @@ a {
 .scene-1-logo {
   width: 65%;
 }
-.scene-1-btn-about,
-.scene-1-btn-buy {
-  display: inline-block;
-  border-radius: 4px;
-  background: radial-gradient(#d8d4a0, 65%, #988050 85%);
-  font-size: 20px;
-  color: #4d4129;
-  cursor: pointer;
-  transition: .15s;
-}
 .scene-1-btn-about {
   padding: 12px 32px;
 }
 .scene-1-btn-buy {
   margin-left: 32px;
   padding: 12px 56px;
-}
-.scene-1-btn-about:hover,
-.scene-1-btn-buy:hover {
-  box-shadow: 0 0 8px 1px #d8d4a0;
 }
 /* WALL */
 .scene-1-wall {
@@ -151,9 +151,116 @@ a {
 }
 /* ********** SCENE 1 END *********** */
 
-.screen02 {
-  height: 80vh;
+.about-section,
+.roadmap-section,
+.coon-masters-section {
+  background: #3d5856;
+}
+.coon-masters-section {
+  /* background: #934043; */
+}
+.about-section > .container,
+.roadmap-section > .container,
+.coon-masters-section > .container {
+  max-width: 1600px;
+  margin: auto;
+  padding: 24px;
+  background: url('img/Compass1.png') -50% 16% no-repeat, url('img/Compass2.png') 102% 10% no-repeat;
+  background-size: 70%, 30%;
+}
+
+/* ********** ABOUT *********** */
+.about-section > .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-text {
+  max-width: 500px;
+  margin-right: 5%;
+  color: white;
+  font-size: 20px;
+}
+.about-text > .about-tilte {
+  margin-bottom: 5%;
+  font-size: 32px;
+}
+.about-btn-buy {
+  margin-top: 5%;
+  padding: 12px 56px;
+}
+.about-section img {
+  max-width: 290px;
+  width: 25%;
+}
+/* ********** ABOUT END *********** */
+
+/* ********** SCENE 2 *********** */
+.scene-2-section {
+  height: 30vh;
   background-image: url('img/screen02.png');
   background-size: auto 100%;
   background-position-x: center;
 }
+/* ********** SCENE 2 END *********** */
+
+/* ********** ROADMAP *********** */
+.roadmap-section > .container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.roadmap-section img {
+  max-width: 430px;
+  width: 25%;
+  margin: 3% 0;
+}
+.roadmap-text {
+  max-width: 430px;
+  margin: 3% 0 3% 10%;
+  color: white;
+  font-size: 20px;
+}
+.roadmap-text > .roadmap-tilte {
+  font-size: 32px;
+}
+.roadmap-text > .roadmap-tilte ~ div {
+  margin-top: 10%;
+}
+.roadmap-gold-text {
+  color: #ffd966;
+}
+/* ********** ROADMAP END *********** */
+
+/* ********** COON MASTERS *********** */
+.coon-masters-section > .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.coon-masters-tilte {
+  width: 100%;
+  margin: 4% 0;
+  font-size: 32px;
+  text-align: center;
+  color: white;
+}
+.coon-masters-portrait {
+  width: 25%;
+  margin: 0 2% 4%;
+}
+.coon-masters-portrait > img {
+  width: 100%;
+}
+.coon-masters-portrait > div {
+  width: 70%;
+  height: 0;
+  margin: auto;
+  padding: 11.5% 0;
+  background: url('img/PortraitCaption.png');
+  background-size: 100% 100%;
+  line-height: 0;
+  font-size: 20px;
+  text-align: center;
+}
+/* ********** COON MASTERS END *********** */

@@ -39,6 +39,19 @@ a {
   background-size: auto 100%;
   background-position-x: center;
 }
+.scene-1-hall-zoom {
+  position: absolute;
+  top: 10.8%;
+  right: 0;
+  left: 0;
+  max-width: 84.1vh;
+  width: 47.31%;
+  height: 40.6%;
+  margin: auto;
+  background-image: url('img/Screen01ZOOM.png');
+  background-size: auto 100%;
+  background-position-x: center;
+}
 /* CONTENT */
 .scene-1-content {
   right: 0;

@@ -1,5 +1,5 @@
 window.onload = () => {
-  let scene1Style = document.getElementById('scene-1').style
+  let scene1Style = document.getElementById('scene-1').style;
   let hallStyle = document.getElementById('scene-1-hall').style;
   let contentStyle = document.getElementById('scene-1-content').style;
   let wallStyle = document.getElementById('scene-1-wall').style;
@@ -32,4 +32,31 @@ window.onload = () => {
   const about = document.getElementById('scene-1-btn-about');
   const aboutTo = document.getElementById(about.dataset.href);
   about.onclick = () => { aboutTo.scrollIntoView(); }
+
+
+  let raccoons = document.getElementById('scene-2-raccoons');
+  const lastRaccoonFileNumber = 9;
+  let isLookingLeft = false;
+
+  let addRaccoon = () => {
+    const linkNumber = Math.floor(Math.random() * lastRaccoonFileNumber) + 1;
+    const link = `img/Scene2/Coon${String(linkNumber).padStart(3, 0)}N.png`;
+    let raccoon = document.createElement('img');
+    raccoon.setAttribute('src', link);
+    raccoon.style.transform = isLookingLeft ? 'scaleX(-1)' : '';
+    isLookingLeft = !isLookingLeft;
+    raccoons.append(raccoon);
+  }
+
+  let toggleRaccoons = () => {
+    raccoons.firstChild.remove();
+    addRaccoon();
+  }
+
+  for (let i = 0; i < 19; i++) {
+    addRaccoon();
+  }
+
+  setTimeout(toggleRaccoons, 20);
+  setInterval(toggleRaccoons, 1500);
 }

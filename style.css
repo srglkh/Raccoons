@@ -197,10 +197,52 @@ a {
 
 /* ********** SCENE 2 *********** */
 .scene-2-section {
+  position: relative;
+  overflow: hidden;
   height: 30vh;
-  background-image: url('img/screen02.png');
+}
+.scene-2-section > div {
+  position: absolute;
+}
+.scene-2-hall {
+  width: 100vw;
+  height: 100%;
+  background-image: url('img/Screen02Background.png');
   background-size: auto 100%;
-  background-position-x: center;
+  animation: scene-2-move 15s linear infinite;
+}
+.scene-2-shading {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#0000, #000f);
+}
+.scene-2-raccoons {
+  position: absolute;
+  bottom: 25%;
+  width: max-content;
+  height: 32%;
+  margin-left: -14vh;
+}
+.scene-2-raccoons > img {
+  height: 100%;
+  margin-right: 2vh;
+  padding-right: .6vh;
+}
+.scene-2-raccoons > img:first-child {
+  margin-left: -12.2vh;
+  transition: margin-left 1.5s linear;
+}
+.scene-2-table {
+  bottom: 0;
+  width: 100vw;
+  height: 25%;
+  background-image: url('img/Screen02Table.png');
+  background-size: auto 100%;
+  animation: scene-2-move 6s linear infinite;
+}
+@keyframes scene-2-move {
+  from { background-position-x: 0; }
+  to { background-position-x: calc(100% - 100vw); }
 }
 /* ********** SCENE 2 END *********** */
 

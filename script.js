@@ -1,4 +1,12 @@
 window.onload = () => {
+  /////////////////// temporary code
+  let backgroundNumber = 0;
+  document.body.ondblclick = () => {
+    backgroundNumber = ++backgroundNumber % 3;
+    document.body.className = ['body-purple', 'body-darkblue', 'body-black'][backgroundNumber];
+  }
+  //////////////////////////////////
+
   let raccoons = document.getElementById('animated-raccoons');
   const lastRaccoonFileNumber = 9;
   let isLookingLeft = false;

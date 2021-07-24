@@ -67,7 +67,7 @@ body > .container {
   padding: 2%;
 }
 .title-logos {
-  width: 72%;
+  width: 60%;
   margin: 0 14%;
   text-align: center;
 }
@@ -80,14 +80,14 @@ body > .container {
 .title-section > .btn {
   margin: 2% 1% 0;
 }
-@media (min-width: 1080px) {
+@media (min-width: 800px) {
   .title-section {
     padding: 4% 0;
   }
   .title-logos {
     order: 1;
-    width: 36%;
-    margin: 0 5%;
+    width: 30%;
+    margin: 0 4%;
   }
   .title-about-btn {
     order: 0;

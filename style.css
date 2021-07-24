@@ -9,6 +9,7 @@ body {
   position: relative;
   min-height: 100%;
   margin: 0;
+  font-family: 'Libre Baskerville', serif;
 }
 a {
   text-decoration: none;
@@ -48,9 +49,9 @@ body > .container {
   border-width: 0 6px 6px;
   border-style: solid;
   border-color: #b79d4a;
-  padding: 11px 0;
+  padding: 15px 0;
   background: radial-gradient(circle at top, #f6eb8b 10%, 30%, #e1ca6c 60%);
-  font-size: 36px;
+  font-size: 32px;
   text-align: center;
   color: black;
 }
@@ -106,23 +107,16 @@ body > .container {
 .about-content {
   width: 450px;
   margin: 24px 24px 24px auto;
+  line-height: 1.5;
   text-align: center;
   color: white;
 }
 .about-title {
-  font-size: 36px;
+  font-size: 32px;
 }
 .about-text {
   margin-top: 1vw;
-  font-size: 24px;
-}
-@media (min-width: 1080px) {
-  .about-content {
-    line-height: 1.5;
-  }
-  .about-text {
-    margin-top: 24px;
-  }
+  font-size: 20px;
 }
 
 
@@ -198,40 +192,32 @@ body > .container {
   color: white;
 }
 .roadmap-title {
-  font-size: 32px;
+  font-size: 28px;
   text-align: center;
 }
 .roadmap-text {
-  margin-top: 12px;
+  margin-top: 24px;
+  line-height: 1.5;
   font-size: 24px;
-}
-@media (min-width: 1080px) {
-  .roadmap-text {
-    margin-top: 24px;
-    line-height: 1.3;
-  }
 }
 
 
 .rarity-row {
   display: flex;
   align-items: flex-start;
-  padding: 48px 0 24px;
+  padding: 48px 0;
 }
 .rarity-row > :first-child {
   margin-right: 24px;
 }
 .rarity-content {
-  font-size: 36px;
+  font-size: 32px;
   text-align: center;
   color: white;
 }
-.rarity-title {
-  font-size: 36px;
-}
 .rarity-text {
-  font-size: 32px;
-  margin-top: 12px;
+  margin-top: 48px;
+  line-height: 1.45;
 }
 .rarity-img {
   min-width: 30%;
@@ -248,8 +234,8 @@ body > .container {
 
 
 .ritual-tilte {
-  margin: 12px 0;
-  font-size: 48px;
+  margin: 8px 0;
+  font-size: 44px;
   text-align: center;
   color: white;
 }
@@ -265,7 +251,8 @@ body > .container {
 }
 .ritual-text {
   width: 35%;
-  font-size: 28px;
+  line-height: 1.45;
+  font-size: 24px;
   text-align: center;
   color: white;
 }
@@ -279,7 +266,7 @@ body > .container {
 }
 @media (min-width: 1080px) {
   .ritual-text {
-    font-size: 36px;
+    font-size: 32px;
   }
 }
 
@@ -306,11 +293,12 @@ body > .container {
   margin-top: 4px;
   padding: 4px 12px;
   background-color: #b79d4a;
-  font-size: 28px;
+  font-size: 24px;
+  text-align: center;
 }
-@media (min-width: 720px) {
+@media (min-width: 800px) {
   .topcoon-name {
     padding: 8px 24px;
-    font-size: 36px;
+    font-size: 32px;
   }
 }

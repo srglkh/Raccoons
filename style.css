@@ -31,6 +31,7 @@ a {
 
 .container {
   max-width: 1080px;
+  width: 100%;
   margin: auto;
 }
 body > .container {
@@ -97,13 +98,14 @@ body > .container {
 
 
 .about-section {
+  display: flex;
   min-height: 33.333vw;
   background-image: url('img/about-background.jpg');
   background-size: auto 100%;
 }
 .about-content {
   width: 450px;
-  margin-left: auto;
+  margin: 24px 24px 24px auto;
   text-align: center;
   color: white;
 }

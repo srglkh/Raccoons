@@ -14,7 +14,7 @@ window.onload = () => {
   let addRaccoon = () => {
     const linkNumber = Math.floor(Math.random() * lastRaccoonFileNumber) + 1;
     let raccoon = document.createElement('img');
-    raccoon.setAttribute('src', `img/animated-section/${linkNumber}.png`);
+    raccoon.setAttribute('src', `/img/animated-section/${linkNumber}.png`);
     raccoon.style.transform = isLookingLeft ? 'scaleX(-1)' : '';
     isLookingLeft = !isLookingLeft;
     raccoons.append(raccoon);

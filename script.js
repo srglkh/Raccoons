@@ -17,7 +17,7 @@ window.onload = () => {
     addRaccoon();
   }
 
-  for (let i = 0; i < 19; i++) {
+  for (let i = 0; i < 12; i++) {
     addRaccoon();
   }
 

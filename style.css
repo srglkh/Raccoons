@@ -186,10 +186,9 @@ body > .container {
 }
 .animated-raccoons {
   position: absolute;
-  bottom: 25%;
+  bottom: 24.9%;
   width: max-content;
   height: 52%;
-  margin-left: -5vh;
 }
 .animated-raccoons > img {
   height: 100%;
@@ -197,7 +196,7 @@ body > .container {
   padding-right: .6vh;
 }
 .animated-raccoons > img:first-child {
-  margin-left: -29.25vh;
+  margin-left: -28.6vh;
   transition: margin-left 3s linear;
 }
 .animated-table {
@@ -206,7 +205,7 @@ body > .container {
   height: 25%;
   background-image: url('/img/animated-table.png');
   background-size: auto 100%;
-  animation: animated-section-move 8s linear infinite;
+  animation: animated-section-move 8535ms linear infinite;
 }
 @keyframes animated-section-move {
   from { background-position-x: 0; }

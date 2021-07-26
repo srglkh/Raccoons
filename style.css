@@ -323,6 +323,8 @@ body > .container {
   flex-wrap: wrap;
 }
 .topcoon-title {
+  width: 100%;
+  margin: 48px 0 2%;
   color: white;
   font-size: 32px;
   text-align: center;
@@ -353,6 +355,12 @@ body > .container {
     font-size: 32px;
   }
 }
+@media (min-width: 1080px) {
+  .topcoon-title {
+    margin-top: -4vw;
+  }
+}
+
 
 .footer-section {
   display: flex;

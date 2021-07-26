@@ -167,7 +167,7 @@ body > .container {
 .animated-section {
   position: relative;
   overflow: hidden;
-  height: 30vh;
+  height: 50vh;
 }
 .animated-section > div {
   position: absolute;
@@ -188,8 +188,8 @@ body > .container {
   position: absolute;
   bottom: 25%;
   width: max-content;
-  height: 32%;
-  margin-left: -14vh;
+  height: 52%;
+  margin-left: -5vh;
 }
 .animated-raccoons > img {
   height: 100%;
@@ -197,8 +197,8 @@ body > .container {
   padding-right: .6vh;
 }
 .animated-raccoons > img:first-child {
-  margin-left: -12.2vh;
-  transition: margin-left 1.5s linear;
+  margin-left: -29.25vh;
+  transition: margin-left 3s linear;
 }
 .animated-table {
   bottom: 0;
@@ -206,7 +206,7 @@ body > .container {
   height: 25%;
   background-image: url('/img/animated-table.png');
   background-size: auto 100%;
-  animation: animated-section-move 6s linear infinite;
+  animation: animated-section-move 8s linear infinite;
 }
 @keyframes animated-section-move {
   from { background-position-x: 0; }
@@ -243,6 +243,9 @@ body > .container {
   margin-top: 24px;
   line-height: 1.5;
   font-size: 24px;
+}
+.roadmap-gold-text {
+  color: #ffd966;
 }
 
 
@@ -320,6 +323,11 @@ body > .container {
   justify-content: space-around;
   flex-wrap: wrap;
 }
+.topcoon-title {
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
 .topcoon-portrait {
   display: flex;
   flex-direction: column;
@@ -345,4 +353,10 @@ body > .container {
     padding: 8px 24px;
     font-size: 32px;
   }
+}
+
+.footer-section {
+  display: flex;
+  min-height: 16.66vw;
+  background-color: black;
 }

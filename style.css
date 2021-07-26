@@ -9,6 +9,7 @@ body {
   position: relative;
   min-height: 100%;
   margin: 0;
+  background-color: black;
   font-family: 'Libre Baskerville', serif;
 }
 a {
@@ -22,13 +23,8 @@ a {
   height: 100%;
   background-image: url('/img/body-pattern.png');
   background-attachment: fixed;
+  filter: opacity(.7);
 }
-.body-purple { background-color: #b0254c; }
-.body-purple .body-background { filter: invert(1) opacity(.3); }
-.body-darkblue { background-color: #1c2e46; }
-.body-darkblue .body-background { filter: opacity(.7); }
-.body-black { background-color: black; }
-.body-black .body-background { filter: opacity(.7); }
 
 .container {
   max-width: 1080px;
@@ -305,9 +301,6 @@ body > .container {
 .ritual-row-img {
   width: 65%;
   padding-left:36px;
-}
-.body-darkblue .ritual-row-img,
-.body-black .ritual-row-img {
   filter: invert(1);
 }
 @media (min-width: 1080px) {

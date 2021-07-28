@@ -406,3 +406,90 @@ body > .container {
   width: 20px;
   height: 20px;
 }
+
+
+.initiate-page {
+  display: flex;
+  background: black url('/img/body-pattern.png');
+}
+.initiate-section {
+  position: relative;
+  max-width: 266.7vh;
+  width: 100vw;
+  max-height: 160vw;
+  height: 100vh;
+  margin: auto;
+  background-image: url('/img/ritual-tilte-img.jpg');
+  background-position: center;
+  background-size: auto 100%;
+}
+.initiate-section > * {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+.initiate-plus-minus {
+  top: 27%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 92vw;
+  width: 57.5vh;
+  height: 8%;
+}
+.initiate-plus-minus > div {
+  position: relative;
+  width: 16%;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+}
+.initiate-minus::before,
+.initiate-plus::before,
+.initiate-plus::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 45%;
+  background-color: black;
+}
+.initiate-minus::before,
+.initiate-plus::before {
+  width: 80%;
+  height: 8%;
+}
+.initiate-plus::after {
+  width: 8%;
+  height: 80%;
+}
+.initiate-input {
+  bottom: 19%;
+  height: 11%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 24px;
+  text-align: center;
+  color: #e1ca6c;
+}
+.initiate-confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 5%;
+  min-height: 60px;
+  max-height: 77px;
+  height: 10%;
+  padding: 0;
+  cursor: pointer;
+}
+@media (min-height: 600px) {
+  .initiate-input {
+    font-size: 32px;
+  }
+}

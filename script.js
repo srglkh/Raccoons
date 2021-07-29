@@ -1,7 +1,7 @@
 window.onload = () => {
   let raccoons = document.getElementById('animated-raccoons');
   if (raccoons) {
-    const lastRaccoonFileNumber = 9;
+    const lastRaccoonFileNumber = 26;
     let isLookingLeft = false;
 
     let addRaccoon = () => {

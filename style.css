@@ -173,7 +173,7 @@ body > .container {
   height: 100%;
   background-image: url('/img/animated-background.png');
   background-size: auto 100%;
-  animation: animated-move 15s linear infinite;
+  animation: animated-section-move 45s linear infinite;
 }
 .animated-shading {
   width: 100%;

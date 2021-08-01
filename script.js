@@ -2,15 +2,16 @@ window.onload = () => {
   let raccoons = document.getElementById('animated-raccoons');
   if (raccoons) {
     const lastRaccoonFileNumber = 9;
+    let nextRaccoon = 1;
     let isLookingLeft = false;
 
     let addRaccoon = () => {
-      const linkNumber = Math.floor(Math.random() * lastRaccoonFileNumber) + 1;
       let raccoon = document.createElement('img');
-      raccoon.setAttribute('src', `/img/animated-section/${linkNumber}.png`);
+      raccoon.setAttribute('src', `/img/animated-section/${nextRaccoon}.png`);
       raccoon.style.transform = isLookingLeft ? 'scaleX(-1)' : '';
       isLookingLeft = !isLookingLeft;
       raccoons.append(raccoon);
+      nextRaccoon = nextRaccoon % lastRaccoonFileNumber + 1;
     }
 
     let toggleRaccoons = () => {

@@ -219,21 +219,39 @@ window.onload = async () => {
   if (initiateInput) {
     init()
 
+    let initiateConfirm = document.getElementById('initiate-confirm');
+    let initiateConfirmClick = () => {
+      if(!selectedAccount) {
+        onConnect();
+      } else {
+        console.log("mint")
+        rss.methods.initiate(initiateInput.value).send(trxOptions, function (err, trxHash) {
+          if(err) {
+            console.log(err)
+            return
+          }
+          console.log(trxHash)
+        })
+      }
+    };
+
     let countDown = setInterval(function() {
 
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
-
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("initiate-confirm").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      let now = new Date().getTime();
+      let distance = countDownDate - now;
 
       if (distance < 0) {
         clearInterval(countDown);
-        document.getElementById("initiate-confirm").innerHTML = "Mint";
+        initiateConfirm.innerHTML = "Mint";
+        initiateConfirm.classList.add('initiate-confirm-active');
+        initiateConfirm.onclick = initiateConfirmClick;
+      } else {
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        initiateConfirm.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
       }
     }, 1000);
 
@@ -259,24 +277,6 @@ window.onload = async () => {
         checkValueRange();
       } else {
         initiateInput.value = 1;
-      }
-    };
-
-    document.getElementById('initiate-confirm').onclick = () => {
-      if(document.getElementById('initiate-confirm').innerHTML == "Mint") {
-        if(!selectedAccount) {
-        onConnect();
-        }
-        else {
-          console.log("mint")
-          rss.methods.initiate(initiateInput.value).send(trxOptions, function (err, trxHash) {
-            if(err) {
-              console.log(err)
-              return
-            }
-            console.log(trxHash)
-          })
-        }
       }
     };
   }

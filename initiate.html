@@ -20,12 +20,26 @@
 
 <body class="initiate-page">
   <div class="initiate-section">
-    <div class="initiate-plus-minus">
-      <div class="btn initiate-minus" id="initiate-minus"></div>
-      <div class="btn initiate-plus" id="initiate-plus"></div>
+    <div class="initiate-content">
+      <div class="initiate-text">
+        Pre-sale starts on Aug 20th 22:00 UTC
+        <br>Minting price: 0.02 ETH
+        <br><span class="initiate-timer" id="initiate-timer">0:0:0:0</span>
+      </div>
+      <div class="initiate-list">
+        <div class="initiate-list-header">Early member benefits</div>
+        <div class="initiate-list-item">NFT and ETH airdrops</div>
+        <div class="initiate-list-item">Lower requirements for Angel minting</div>
+        <div class="initiate-list-item">Early access to the Raccoon Lodge</div>
+      </div>
     </div>
-    <input type="text" class="initiate-input" id="initiate-input" value="1">
-    <div class="btn initiate-confirm" id="initiate-confirm"></div>
+    <div class="initiate-btn-group">
+      <div class="btn initiate-connect" id="initiate-connect">Connect</div>
+      <div class="initiate-minus" id="initiate-minus"></div>
+      <input type="text" class="initiate-input" id="initiate-input" value="1">
+      <div class="btn btn-disabled initiate-confirm" id="initiate-confirm">Mint</div>
+      <div class="initiate-plus" id="initiate-plus"></div>
+    </div>
   </div>
   <script type="text/javascript" src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/web3modal"></script>

@@ -74,6 +74,8 @@ async function fetchAccountData() {
   // MetaMask does not give you all accounts, only the selected account
   console.log("Got accounts", accounts);
   selectedAccount = accounts[0];
+  enableConfirmButton();
+  toggleConnectButton(false);
 }
 
 async function refreshAccountData() {
@@ -129,37 +131,50 @@ async function onDisconnect() {
   }
 
   selectedAccount = null;
+  toggleConnectButton(true);
 }
 
+let confirmButtonClick = () => {
+  console.log("mint");
+  let value = new BN(initiateInput.value)
+  value = mintPrice.mul(value);
+  console.log(value.toString(10));
+  let trxOptions = {
+    from: selectedAccount,
+    to: contractAddress,
+    value: value,
+    chain: "rinkeby"
+  };
+  rss.methods.initiate(initiateInput.value).send(trxOptions, function (err, trxHash) {
+    if(err) {
+      console.log(err);
+      return;
+    }
+    console.log(trxHash);
+  });
+};
+
+let confirmButton = document.getElementById('initiate-confirm');
+let countDownDateReached = false;
+let enableConfirmButton = () => {
+  if (countDownDateReached && selectedAccount) {
+    confirmButton.classList.remove('btn-disabled');
+    confirmButton.onclick = confirmButtonClick;
+  }
+};
+
+let connectButton = document.getElementById('initiate-connect');
+let toggleConnectButton = (toggle) => {
+  connectButton.classList.toggle('btn-disabled', !toggle);
+  connectButton.onclick = toggle ? onConnect : null;
+};
+toggleConnectButton(true);
+
 window.onload = async () => {
+  let initiateTimer = document.getElementById('initiate-timer');
   let initiateInput = document.getElementById('initiate-input');
 
   init();
-
-  let initiateConfirm = document.getElementById('initiate-confirm');
-  let initiateConfirmClick = () => {
-    if(!selectedAccount) {
-      onConnect();
-    } else {
-      console.log("mint");
-      let value = new BN(initiateInput.value)
-      value = mintPrice.mul(value);
-      console.log(value.toString(10));
-      let trxOptions = {
-        from: selectedAccount,
-        to: contractAddress,
-        value: value,
-        chain: "rinkeby"
-      };
-      rss.methods.initiate(initiateInput.value).send(trxOptions, function (err, trxHash) {
-        if(err) {
-          console.log(err);
-          return;
-        }
-        console.log(trxHash);
-      });
-    }
-  };
 
   let countDown = setInterval(function() {
 
@@ -168,16 +183,16 @@ window.onload = async () => {
 
     if (distance < 0) {
       clearInterval(countDown);
-      initiateConfirm.innerHTML = "Mint";
-      initiateConfirm.classList.add('initiate-confirm-active');
-      initiateConfirm.onclick = initiateConfirmClick;
+      initiateTimer.innerHTML = '0:0:0:0';
+      countDownDateReached = true;
+      enableConfirmButton();
     } else {
       let days = Math.floor(distance / (1000 * 60 * 60 * 24));
       let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      initiateConfirm.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      initiateTimer.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
     }
   }, 1000);
 

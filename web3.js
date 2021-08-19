@@ -199,7 +199,7 @@ window.onload = async () => {
 
     if (distance < 0) {
       clearInterval(countDown);
-      initiateTimer.innerHTML = '0:0:0:0';
+      initiateTimer.innerHTML = '00:00:00:00';
       countDownDateReached = true;
       enableConfirmButton();
     } else {
@@ -208,7 +208,19 @@ window.onload = async () => {
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      initiateTimer.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
+      if(days < 10) {
+        days = "0" + days;
+      }
+      if(hours < 10) {
+        hours = "0" + hours;
+      }
+      if(minutes < 10) {
+        minutes = "0" + minutes;
+      }
+      if(seconds < 10) {
+        seconds = "0" + seconds;
+      }
+      initiateTimer.innerHTML = days+':'+hours+':'+minutes+':'+seconds;
     }
   }, 1000);
 

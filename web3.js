@@ -4,7 +4,7 @@ const EvmChains = window.evmChains;
 const Fortmatic = window.Fortmatic;
 const BN = window.Web3.utils.BN;
 
-let countDownDate = new Date(Date.UTC(2021, 7, 25, 22));
+let countDownDate = new Date(Date.UTC(2021, 7, 27, 22));
 
 const contractAddress = "0x020BB206cd689d6981182579da490d5F4ceB4c46";
 const contractABI = [

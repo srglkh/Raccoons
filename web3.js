@@ -4,9 +4,9 @@ const EvmChains = window.evmChains;
 const Fortmatic = window.Fortmatic;
 const BN = window.Web3.utils.BN;
 
-let countDownDate = new Date("Aug 20, 2021 22:00:00").getTime();
+let countDownDate = new Date(Date.UTC(2021, 7, 27, 22));
 
-const contractAddress = "0x7E8546751fF5908B1a4c8DC4C435a5Fe18839600";
+const contractAddress = "0x020BB206cd689d6981182579da490d5F4ceB4c46";
 const contractABI = [
   {"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}, 
   {"inputs":[{"internalType":"uint256","name":"numberOfTokens","type":"uint256"}],"name":"initiate","outputs":[],"stateMutability":"payable","type":"function"}
@@ -27,7 +27,6 @@ let selectedAccount;
 
 function init() {
 
-  console.log("Initializing example");
   console.log("WalletConnectProvider is", WalletConnectProvider);
   console.log("Fortmatic is", Fortmatic);
 
@@ -35,16 +34,16 @@ function init() {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
-        // 3943ba9cb26b46f583d1744f868324d7
-        infuraId: "01476dedfc4a4c868a945b7194021bcd",
+        // 01476dedfc4a4c868a945b7194021bcd
+        infuraId: "3943ba9cb26b46f583d1744f868324d7",
       }
     },
 
     fortmatic: {
       package: Fortmatic,
       options: {
-        // pk_live_AD8824184DAA9F9D
-        key: "pk_test_01D574133724EE35"
+        // pk_test_01D574133724EE35
+        key: "pk_live_AD8824184DAA9F9D"
       }
     }
   };
@@ -75,7 +74,6 @@ async function fetchAccountData() {
   console.log("Got accounts", accounts);
   selectedAccount = accounts[0];
   enableConfirmButton();
-  toggleConnectButton(false);
 }
 
 async function refreshAccountData() {
@@ -85,10 +83,13 @@ async function refreshAccountData() {
 async function onConnect() {
 
   console.log("Opening a dialog", web3Modal);
+  toggleConnectButton(false);
+
   try {
     provider = await web3Modal.connect();
   } catch(e) {
     console.log("Could not get a wallet connection", e);
+    toggleConnectButton(true);
     return;
   }
 
@@ -108,11 +109,14 @@ async function onConnect() {
   });
 
   await refreshAccountData();
+  toggleButton("Disconnect");
+  toggleConnectButton(true);
 }
 
 async function onDisconnect() {
 
   console.log("Killing the wallet connection", provider);
+  toggleConnectButton(false);
 
   if(provider.disconnect) {
     await provider.disconnect();
@@ -129,14 +133,15 @@ async function onDisconnect() {
     await web3Modal.clearCachedProvider();
     provider = null;
   }
-
   selectedAccount = null;
+  toggleButton("Connect");
   toggleConnectButton(true);
 }
 
+let initiateInput = document.getElementById('initiate-input');
 let confirmButtonClick = () => {
   console.log("mint");
-  let value = new BN(initiateInput.value)
+  let value = new BN(initiateInput.value);
   value = mintPrice.mul(value);
   console.log(value.toString(10));
   let trxOptions = {
@@ -166,13 +171,24 @@ let enableConfirmButton = () => {
 let connectButton = document.getElementById('initiate-connect');
 let toggleConnectButton = (toggle) => {
   connectButton.classList.toggle('btn-disabled', !toggle);
-  connectButton.onclick = toggle ? onConnect : null;
+  //connectButton.onclick = toggle ? onConnect : null;
 };
 toggleConnectButton(true);
 
+let toggleButton = (toggle) => {
+  if(toggle == "Connect") {
+    connectButton.innerHTML = toggle;
+    connectButton.onclick = onConnect;
+  }
+  if(toggle == "Disconnect") {
+    connectButton.innerHTML = toggle;
+    connectButton.onclick = onDisconnect;
+  }
+}
+toggleButton("Connect");
+
 window.onload = async () => {
   let initiateTimer = document.getElementById('initiate-timer');
-  let initiateInput = document.getElementById('initiate-input');
 
   init();
 
@@ -183,7 +199,7 @@ window.onload = async () => {
 
     if (distance < 0) {
       clearInterval(countDown);
-      initiateTimer.innerHTML = '0:0:0:0';
+      initiateTimer.innerHTML = '00:00:00:00';
       countDownDateReached = true;
       enableConfirmButton();
     } else {
@@ -192,7 +208,19 @@ window.onload = async () => {
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      initiateTimer.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
+      if(days < 10) {
+        days = "0" + days;
+      }
+      if(hours < 10) {
+        hours = "0" + hours;
+      }
+      if(minutes < 10) {
+        minutes = "0" + minutes;
+      }
+      if(seconds < 10) {
+        seconds = "0" + seconds;
+      }
+      initiateTimer.innerHTML = days+':'+hours+':'+minutes+':'+seconds;
     }
   }, 1000);
 

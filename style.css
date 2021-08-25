@@ -285,11 +285,6 @@ body > .container {
   text-align: center;
   color: white;
 }
-.ritual-tilte-img {
-  height: 37.5vw;
-  background-image: url('/img/ritual-tilte-img.jpg');
-  background-size: auto 100%;
-}
 .ritual-row {
   display: flex;
   align-items: center;

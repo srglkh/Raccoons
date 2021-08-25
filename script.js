@@ -1,4 +1,14 @@
-window.onload = () => {
+window.addEventListener('DOMContentLoaded', () => {
+  let header = document.getElementById('header-section');
+  if (header) {
+    let toggleHeader = () => {
+      header.classList.toggle('header-hidden', window.pageYOffset < window.innerHeight);
+    };
+
+    window.addEventListener('scroll', toggleHeader);
+    toggleHeader();
+  }
+
   let raccoons = document.getElementById('animated-raccoons');
   if (raccoons) {
     const lastRaccoonFileNumber = 26;
@@ -26,4 +36,4 @@ window.onload = () => {
     setTimeout(toggleRaccoons, 20);
     setInterval(toggleRaccoons, 3000);
   }
-}
+});

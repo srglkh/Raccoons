@@ -63,6 +63,33 @@ body > .container {
 }
 
 
+.header-section {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  font-size: 16px;
+  transition: .3s;
+}
+.header-section.header-hidden {
+  top: -50px;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+.header-nav > a {
+  color: white;
+  transition: .3s;
+}
+.header-nav > a:hover {
+  color: #ffd966;
+}
+
+
 .title-section {
   display: flex;
   justify-content: center;

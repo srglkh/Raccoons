@@ -327,7 +327,6 @@ body > .container {
 .ritual-row-img {
   width: 65%;
   padding-left:36px;
-  filter: invert(1);
 }
 @media (min-width: 800px) {
   .ritual-text { font-size: 24px; }

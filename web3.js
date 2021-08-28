@@ -188,6 +188,8 @@ let toggleButton = (toggle) => {
 toggleButton("Connect");
 
 window.onload = async () => {
+  return;
+
   let initiateTimer = document.getElementById('initiate-timer');
 
   init();

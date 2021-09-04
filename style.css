@@ -63,6 +63,33 @@ body > .container {
 }
 
 
+.header-section {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  font-size: 16px;
+  transition: .3s;
+}
+.header-section.header-hidden {
+  top: -50px;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+.header-nav > a {
+  color: white;
+  transition: .3s;
+}
+.header-nav > a:hover {
+  color: #ffd966;
+}
+
+
 .title-section {
   display: flex;
   justify-content: center;
@@ -285,15 +312,10 @@ body > .container {
   text-align: center;
   color: white;
 }
-.ritual-tilte-img {
-  height: 37.5vw;
-  background-image: url('/img/ritual-tilte-img.jpg');
-  background-size: auto 100%;
-}
 .ritual-row {
   display: flex;
   align-items: center;
-  padding: 48px 16px;
+  padding: 16px;
 }
 .ritual-text {
   width: 35%;
@@ -305,7 +327,9 @@ body > .container {
 .ritual-row-img {
   width: 65%;
   padding-left:36px;
-  filter: invert(1);
+}
+.ritual-btn {
+  margin: 0 auto 48px;
 }
 @media (min-width: 800px) {
   .ritual-text { font-size: 24px; }
@@ -313,6 +337,9 @@ body > .container {
 @media (min-width: 1080px) {
   .ritual-text {
     font-size: 32px;
+  }
+  .ritual-row {
+    padding: 48px 16px;
   }
 }
 
@@ -622,5 +649,181 @@ body > .container {
 @media (min-width: 1728px) {
   .initiate-btn-group {
     right: 0;
+  }
+}
+
+
+.ritual-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: black url('/img/body-pattern.png');
+}
+.ritual-page-header > * {
+  display: block;
+  margin: 8px 0;
+  text-align: center;
+  color: white;
+}
+.ritual-page-header > .ritual-page-title {
+  font-size: 28px;
+}
+.ritual-page-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding-bottom: 8px;
+}
+.ritual-page-content {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.ritual-page-raccoons {
+  display: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  max-width: 630px;
+  max-height: 100%;
+  padding: 8px;
+  background: black;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.ritual-page-raccoons::-webkit-scrollbar {
+  width: 0px;
+}
+.ritual-page-raccoon {
+  width: 49%;
+  margin: 0.5%;
+  padding: 4px;
+}
+.ritual-page-selected-raccoon {
+  background: #e1ca6c;
+}
+.ritual-page-raccoon > img {
+  width: 100%;
+}
+.ritual-page-raccoon-name {
+  font-size: 18px;
+  text-align: center;
+  color: white;
+}
+.ritual-page-content-right {
+  max-width: 690px;
+  margin: 8px 4px;
+}
+.ritual-page-text {
+  margin-bottom: 8px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+}
+.ritual-page-btn-group > .btn {
+  margin: auto;
+}
+.ritual-main-button-label {
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: white;
+}
+@media (max-width: 1023px) {
+  .ritual-page-btn-group > .btn {
+    width: 200px;
+    padding: 8px 0;
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .ritual-page-content {
+    flex-direction: column;
+  }
+  .ritual-page-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ritual-main-button-label {
+    order: -1;
+    width: 50%;
+    margin-bottom: 4px;
+    margin-left: 50%;
+  }
+}
+@media (max-width: 539px) {
+  .ritual-page-btn-group > .btn {
+    width: 150px;
+    border-width: 0 5px 5px;
+    padding: 4px 0;
+    font-size: 22px;
+  }
+}
+@media (min-width: 540px) {
+  .ritual-page-header {
+    display: flex;
+    align-items: center;
+  }
+  .ritual-page-header > * {
+    flex: 1;
+  }
+  .ritual-page-header > .ritual-page-title {
+    flex: 0 0 auto;
+  }
+  .ritual-page-raccoon-name { font-size: 20px; }
+  .ritual-page-text { font-size: 22px; }
+  .ritual-main-button-label { font-size: 20px; }
+}
+@media (min-width: 768px) {
+  .ritual-page-raccoons {
+    width: 50%;
+    margin: 8px 16px;
+    padding: 16px;
+  }
+  .ritual-page-raccoon {
+    padding: 8px;
+  }
+  .ritual-page-content-right {
+    width: 50%;
+  }
+  .ritual-page-text {
+    margin-bottom: 32px;
+    font-size: 24px;
+  }
+  .ritual-main-button-label {
+    height: 30px;
+    margin-top: 8px;
+    line-height: 30px;
+    font-size: 22px;
+  }
+}
+@media (min-width: 1024px) and (max-aspect-ratio: 5/4),
+       (min-width: 1200px) and (max-aspect-ratio: 5/3), 
+       (min-width: 1400px){
+  .ritual-page-header {
+    padding: 32px 56px;
+  }
+  .ritual-page-header > * { font-size: 28px; }
+  .ritual-page-header > .ritual-page-title { font-size: 40px; }
+  .ritual-page-container {
+    padding-bottom: 80px;
+  }
+  .ritual-page-raccoons {
+    padding: 24px 32px;
+  }
+  .ritual-page-raccoon {
+    padding: 24px 16px;
+  }
+  .ritual-page-raccoon-name {
+    margin-top: 12px;
+  }
+  .ritual-page-text {
+    margin-bottom: 100px;
+    font-size: 28px;
+  }
+  .ritual-main-button-label {
+    height: 60px;
+    line-height: 60px;
   }
 }

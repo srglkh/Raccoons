@@ -653,69 +653,97 @@ body > .container {
 }
 
 
-.ritual-page {
+.ritual-page,
+.upgrade-page {
   display: flex;
   flex-direction: column;
   height: 100%;
   background: black url('/img/body-pattern.png');
 }
-.ritual-page-header > * {
+.ritual-page-header > *,
+.upgrade-page-header > * {
   display: block;
   margin: 8px 0;
   text-align: center;
   color: white;
 }
-.ritual-page-header > .ritual-page-title {
+.ritual-page-header > .ritual-page-title,
+.upgrade-page-header > .upgrade-page-title {
   font-size: 28px;
 }
-.ritual-page-container {
+.ritual-page-container,
+.upgrade-page-container {
   display: flex;
   flex: 1;
   overflow: hidden;
   padding-bottom: 8px;
 }
-.ritual-page-content {
+.ritual-page-content,
+.upgrade-page-content {
   display: flex;
   flex: 1;
   justify-content: space-evenly;
   align-items: center;
 }
-.ritual-page-raccoons {
+.ritual-page-raccoons,
+.upgrade-page-content-raccoons {
+  max-width: 630px;
+  max-height: 100%;
+}
+.upgrade-page-content-raccoons {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 30%;
+}
+.ritual-page-raccoons,
+.upgrade-page-raccoons {
   display: none;
   justify-content: center;
   flex-wrap: wrap;
   overflow: auto;
-  max-width: 630px;
-  max-height: 100%;
   padding: 8px;
   background: black;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.ritual-page-raccoons::-webkit-scrollbar {
+.ritual-page-raccoons::-webkit-scrollbar,
+.upgrade-page-raccoons::-webkit-scrollbar {
   width: 0px;
 }
-.ritual-page-raccoon {
+.ritual-page-raccoon,
+.upgrade-page-raccoon {
   width: 49%;
   margin: 0.5%;
   padding: 4px;
 }
-.ritual-page-selected-raccoon {
+.ritual-page-selected-raccoon,
+.upgrade-page-selected-raccoon {
   background: #e1ca6c;
 }
-.ritual-page-raccoon > img {
+.ritual-page-raccoon > img,
+.upgrade-page-raccoon > img {
   width: 100%;
 }
-.ritual-page-raccoon-name {
+.ritual-page-raccoon-name,
+.upgrade-page-raccoon-name {
   font-size: 18px;
   text-align: center;
   color: white;
+}
+.upgrade-page-content-raccoons > .btn {
+  margin: 16px auto 0;
 }
 .ritual-page-content-right {
   max-width: 690px;
   margin: 8px 4px;
 }
-.ritual-page-text {
+.upgrade-page-content-center {
+  max-width: 690px;
+  margin: 8px 4px;
+}
+.ritual-page-text,
+.upgrade-page-text {
   margin-bottom: 8px;
   font-size: 18px;
   text-align: center;
@@ -724,24 +752,32 @@ body > .container {
 .ritual-page-btn-group > .btn {
   margin: auto;
 }
-.ritual-main-button-label {
+.upgrade-page-btn-group > .btn {
+  margin: 12px auto 0;
+}
+.ritual-main-button-label,
+.upgrade-page-sacrificed-label {
   height: 20px;
   line-height: 20px;
   text-align: center;
   color: white;
 }
 @media (max-width: 1023px) {
-  .ritual-page-btn-group > .btn {
+  .ritual-page-btn-group > .btn,
+  .upgrade-page-content-raccoons > .btn,
+  .upgrade-page-btn-group > .btn {
     width: 200px;
     padding: 8px 0;
     font-size: 24px;
   }
 }
 @media (max-width: 767px) {
-  .ritual-page-content {
+  .ritual-page-content,
+  .upgrade-page-content {
     flex-direction: column;
   }
-  .ritual-page-btn-group {
+  .ritual-page-btn-group,
+  .upgrade-page-btn-group {
     display: flex;
     flex-wrap: wrap;
   }
@@ -751,9 +787,14 @@ body > .container {
     margin-bottom: 4px;
     margin-left: 50%;
   }
+  .upgrade-page-sacrificed-label {
+    width: 100%;
+  }
 }
 @media (max-width: 539px) {
-  .ritual-page-btn-group > .btn {
+  .ritual-page-btn-group > .btn,
+  .upgrade-page-content-raccoons > .btn,
+  .upgrade-page-btn-group > .btn {
     width: 150px;
     border-width: 0 5px 5px;
     padding: 4px 0;
@@ -761,37 +802,53 @@ body > .container {
   }
 }
 @media (min-width: 540px) {
-  .ritual-page-header {
+  .ritual-page-header,
+  .upgrade-page-header {
     display: flex;
     align-items: center;
   }
-  .ritual-page-header > * {
+  .ritual-page-header > *,
+  .upgrade-page-header > * {
     flex: 1;
   }
-  .ritual-page-header > .ritual-page-title {
+  .ritual-page-header > .ritual-page-title,
+  .upgrade-page-header > .upgrade-page-title {
     flex: 0 0 auto;
   }
-  .ritual-page-raccoon-name { font-size: 20px; }
-  .ritual-page-text { font-size: 22px; }
-  .ritual-main-button-label { font-size: 20px; }
+  .ritual-page-raccoon-name,
+  .upgrade-page-raccoon-name { font-size: 20px; }
+  .ritual-page-text,
+  .upgrade-page-text { font-size: 22px; }
+  .ritual-main-button-label,
+  .upgrade-page-sacrificed-label { font-size: 20px; }
 }
 @media (min-width: 768px) {
-  .ritual-page-raccoons {
+  .ritual-page-raccoons,
+  .upgrade-page-content-raccoons {
     width: 50%;
     margin: 8px 16px;
+  }
+  .ritual-page-raccoons,
+  .upgrade-page-raccoons {
     padding: 16px;
   }
-  .ritual-page-raccoon {
+  .ritual-page-raccoon,
+  .upgrade-page-raccoon {
     padding: 8px;
   }
   .ritual-page-content-right {
     width: 50%;
   }
-  .ritual-page-text {
+  .upgrade-page-content-center {
+    width: 25%;
+  }
+  .ritual-page-text,
+  .upgrade-page-text {
     margin-bottom: 32px;
     font-size: 24px;
   }
-  .ritual-main-button-label {
+  .ritual-main-button-label,
+  .upgrade-page-sacrificed-label {
     height: 30px;
     margin-top: 8px;
     line-height: 30px;
@@ -801,24 +858,38 @@ body > .container {
 @media (min-width: 1024px) and (max-aspect-ratio: 5/4),
        (min-width: 1200px) and (max-aspect-ratio: 5/3), 
        (min-width: 1400px){
-  .ritual-page-header {
+  .ritual-page-header,
+  .upgrade-page-header {
     padding: 32px 56px;
   }
-  .ritual-page-header > * { font-size: 28px; }
-  .ritual-page-header > .ritual-page-title { font-size: 40px; }
+  .ritual-page-header > *,
+  .upgrade-page-header > * {
+    font-size: 28px;
+  }
+  .ritual-page-header > .ritual-page-title,
+  .upgrade-page-header > .upgrade-page-title {
+    font-size: 40px;
+  }
   .ritual-page-container {
     padding-bottom: 80px;
   }
-  .ritual-page-raccoons {
+  .upgrade-page-container {
+    padding-bottom: 32px;
+  }
+  .ritual-page-raccoons,
+  .upgrade-page-raccoons {
     padding: 24px 32px;
   }
-  .ritual-page-raccoon {
+  .ritual-page-raccoon,
+  .upgrade-page-raccoon {
     padding: 24px 16px;
   }
-  .ritual-page-raccoon-name {
+  .ritual-page-raccoon-name,
+  .upgrade-page-raccoon-name {
     margin-top: 12px;
   }
-  .ritual-page-text {
+  .ritual-page-text,
+  .upgrade-page-text {
     margin-bottom: 100px;
     font-size: 28px;
   }

@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     let addRaccoon = () => {
       let raccoon = document.createElement('img');
-      raccoon.setAttribute('src', `/img/animated-section/${nextRaccoon}.png`);
+      raccoon.setAttribute('src', `./img/animated-section/${nextRaccoon}.png`);
       raccoon.style.transform = isLookingLeft ? 'scaleX(-1)' : '';
       isLookingLeft = !isLookingLeft;
       raccoons.append(raccoon);
